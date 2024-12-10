@@ -1,0 +1,47 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+}
+.mainimg{
+  height: 200px;
+}
+
+.smallImage{
+  width: 25% ;
+  height: 50px ;
+}
+
+
+.runner-card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #f9f9f9;
+}
+
+.profile {
+  display: flex;
+  align-items: flex-start;
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.details {
+  flex: 1;
+}
+
+.details p {
+  margin: 4px 0;
+}
+
+button {
+  margin-top: 12px;
+}

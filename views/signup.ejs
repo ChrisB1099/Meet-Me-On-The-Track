@@ -1,0 +1,93 @@
+<%- include('partials/header') -%>
+    <main class="container">
+        <div class="row justify-content-center">
+            <section class="col-6 mt-5">
+                <% if (locals.messages.errors) { %>
+                    <% messages.errors.forEach( el => { %>
+                        <div class="alert alert-danger"><%= el.msg %></div>
+                    <% }) %>    
+                <% } %>
+                <% if (locals.messages.info) { %>
+                    <% messages.info.forEach( el => { %>
+                        <div class="alert alert-info"><%= el.msg %></div>
+                    <% }) %>    
+                <% } %>
+                <form action="/signup"  enctype="multipart/form-data" method="POST">
+                  <div class="mb-3">
+  <label for="first-name">First Name:</label>
+  <input  class="form-control" type="text" id="first-name" name="firstName" required />
+  
+  <label for="last-name">Last Name:</label>
+  <input  class="form-control" type="text" id="last-name" name="lastName" required />
+</div>
+                  <div class="mb-3">
+                        <label for="userName" class="form-label">User Name</label>
+                        <input type="text" class="form-control" id="userName" name="userName">
+                      </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+                      </div>
+                      
+  <label for="imgUpload" class="form-label">Image</label>
+  <input type="file" class="form-control" id="imageUpload" name="file" required />
+
+
+  <!-- Best Track Times -->
+
+    <h2>Best Track Times</h2>
+    <label for="time-100m">100m:</label>
+    <input class="form-control" type="text" id="time-100m" name="time100m" placeholder="e.g., 10.5s" />
+    
+    <label for="time-200m">200m:</label>
+    <input class="form-control" type="text" id="time-200m" name="time200m" placeholder="e.g., 21.5s" /><br>
+    
+    <label for="time-400m">400m:</label>
+    <input class="form-control" type="text" id="time-400m" name="time400m" placeholder="e.g., 50.5s" />
+    
+    <label for="time-800m">800m:</label>
+    <input class="form-control" type="text" id="time-800m" name="time800m" placeholder="e.g., 2:10" /><br>
+    
+    <label for="time-1500m">1500m:</label>
+    <input class="form-control" type="text" id="time-1500m" name="time1500m" placeholder="e.g., 4:30" />
+    
+    <label for="time-3000m">3000m:</label>
+    <input class="form-control" type="text" id="time-3000m" name="time3000m" placeholder="e.g., 9:30" /><br>
+
+
+  <!-- Availability -->
+  <fieldset>
+    <legend>Availability</legend>
+    <label for="availability">Select Available Days and Times:</label>
+    <textarea class="form-control" id="availability" name="availability" rows="4" placeholder="e.g., Mon-Fri, 6-8pm"></textarea>
+  </fieldset>
+
+    
+    <!-- Workout Preferences Dropdown -->
+    <fieldset>
+      <legend>Workout Preferences</legend>
+      <label for="workout-preferences">Choose your workout preference:</label>
+      <select id="workout-preferences" name="workoutPreference" required>
+        <option class="form-control" value="">--Select an option--</option>
+        <option value="Sprints">Sprints</option>
+        <option value="Mid Distance">Mid Distance</option>
+        <option value="Long Distance">Long Distance</option>
+        <option value="Hurdles and Field">Hurdles and Field</option>
+      </select>
+    </fieldset>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </section>
+        </div>
+    </main>
+
+<%- include('partials/footer') -%>

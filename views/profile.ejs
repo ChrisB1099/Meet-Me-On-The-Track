@@ -1,0 +1,147 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Classes</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content=""> 
+<!-- bootstrap css -->
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+<!-- style css -->
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<!-- Responsive-->
+<link rel="stylesheet" href="./css/responsive.css">
+<!-- fevicon -->
+<link rel="icon" href="./images/fevicon.png" type="image/gif" />
+<!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="./css/jquery.mCustomScrollbar.min.css">
+<!-- Tweaks for older IEs-->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<!-- owl stylesheets --> 
+<link rel="stylesheet" href="./css/owl.carousel.min.css">
+<link rel="stylesheet" href="./css/owl.theme.default.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+</head>
+<body>
+    <!-- header section start -->
+    <div class="header_section">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- <div class="logo"><a href="index.html"><img src="./images/logo.png"></a></div> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/homepage">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/tracklocations">Track Locations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Runners">Runners</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link " href="/profile">Profile</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link " href="/resources.html">Resources</a>
+            </li>
+
+          </ul>                                          
+          <form class="form-inline my-2 my-lg-0">
+            <div class="search_icon"><a href="#"><img src="./images/search-icon.png"></a></div>
+          </form>
+        </div>
+      </nav>
+    </div>
+<div style="padding: 16px; border: 1px solid black; display: flex; width: 45%; margin: 2%; flex-direction: column; border-radius: 8px; margin: auto; background-color: #f9f9f9;" class="container">
+ 
+<form id="runner-profile-form"  enctype="multipart/form-data" action="/profile/update" method="post">
+  
+  <label style="color: #ff5333;" for="imgUpload" class="form-label">Image</label>
+  <input type="file" class="form-control" id="imageUpload" name="file"/>
+  <img style="width:200px; height:200px;"class="profile-img" src="<%= user.image %>" alt="<%= user.firstName %>"><br/>
+
+  <!-- Name -->
+  <label style="color: #ff5333;" for="first-name">First Name:</label>
+  <input class="form-control" type="text" id="first-name" name="firstName" value="<%=user.firstName%>" required />
+  
+  <label style="color: #ff5333;"  for="last-name">Last Name:</label>
+  <input class="form-control" type="text" id="last-name" name="lastName" value="<%=user.lastName%>" required />
+
+  <!-- Best Track Times -->
+  <fieldset>
+    <h2 style="color: #ff5333;">Best Track Times</h2>
+    <label for="time-100m">100m:</label>
+    <input class="form-control" type="text" id="time-100m" name="time100m" value="<%=user.time100m%>" placeholder="e.g., 10.5s" />
+    
+    <label style="color: #ff5333;" for="time-200m">200m:</label>
+    <input class="form-control" type="text" id="time-200m" name="time200m" value="<%=user.time200m%>" placeholder="e.g., 21.5s" />
+    
+    <label style="color: #ff5333;" for="time-400m">400m:</label>
+    <input class="form-control" type="text" id="time-400m" name="time400m" value="<%=user.time400m%>" placeholder="e.g., 50.5s" />
+    
+    <label style="color: #ff5333;" for="time-800m">800m:</label>
+    <input class="form-control" type="text" id="time-800m" name="time800m" value="<%=user.time800m%>" placeholder="e.g., 2:10" />
+    
+    <label style="color: #ff5333;" for="time-1500m">1500m:</label>
+    <input class="form-control" type="text" id="time-1500m" name="time1500m" value="<%=user.time1500m%>" placeholder="e.g., 4:30" />
+    
+    <label style="color: #ff5333;" for="time-3000m">3000m:</label>
+    <input class="form-control" type="text" id="time-3000m" name="time3000m" value="<%=user.time3000m%>" placeholder="e.g., 9:30" />
+  </fieldset>
+
+  <!-- Availability -->
+  <fieldset>
+    <h2 style="color: #ff5333;" style="color: #ff5333;">Availability</h2>
+    <label for="availability">Select Available Days and Times:</label>
+    <textarea class="form-control" id="availability" name="availability" rows="4" placeholder="e.g., Mon-Fri, 6-8pm"><%=user.availability%></textarea>
+  </fieldset>
+
+    
+    <!-- Workout Preferences Dropdown -->
+    <fieldset>
+      <h2>Workout Preferences</h2>
+      <label for="workout-preferences">Choose your workout preference:</label>
+      <select class="nice-select" id="workout-preferences" name="workoutPreference" required>
+        <option value="">--Select an option--</option>
+        <option <%=user.workoutPreference==="Sprints"?"selected":""%> value="Sprints">Sprints</option>
+        <option <%=user.workoutPreference==="Mid Distance"?"selected":""%> value="Mid Distance">Mid Distance</option>
+        <option <%=user.workoutPreference==="Long Distance"?"selected":""%> value="Long Distance">Long Distance</option>
+        <option <%=user.workoutPreference==="Hurdles and Field"?"selected":""%> value="Hurdles and Field">Hurdles and Field</option>
+      </select>
+    </fieldset>
+
+  <!-- Submit Button -->
+  <button type="submit">Update</button>
+</form>
+</div>
+<div style="padding: 16px; border: 1px solid black; display: flex; width: 45%; margin: 2%; flex-direction: column; border-radius: 8px; background-color: #f9f9f9; margin: auto; margin-top: 20px;" class="col-6">
+ 
+    <h3>Invitations</h3>
+  <% for(var i=0; i<user.invitations.length; i++) {%>
+    <li class="col-6 justify-content-between mt-5">
+      <span><%= user.invitations[i].message %></span>  
+      <form
+      action="/profile/deleteInvitation/<%= user.invitations[i].from %>/?_method=DELETE"
+      method="POST"
+      class="col-3"
+    >
+      <button class="btn btn-primary fa fa-trash" type="submit">Delete Invite</button>
+    </form>
+    </li>
+  <% } %>
+</div>
+
+<%- include('partials/footer') -%>
