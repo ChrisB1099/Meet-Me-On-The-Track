@@ -16,7 +16,6 @@ module.exports = {
   getRunners: async (req, res) => {
     try {
       const runners = await User.find().lean();
-      console.log("image" ,runners)
       res.render("runners.ejs", { runners: runners, user: req.user});
     } catch (err) {
       console.log(err);

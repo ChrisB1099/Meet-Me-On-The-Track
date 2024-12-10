@@ -21,7 +21,7 @@ router.post("/signup", upload.single("file"), authController.postSignup);
 router.get("/homepage", homeController.getIndex);
 router.get("/tracklocations",tracklocationsController.getIndex);
 // router.get("/resources", resourcesController.getIndex);
-router.get("/invite/:userId", invitationController.getInvite);
+router.get("/invite/:userId", ensureAuth, invitationController.getInvite);
 
 
 

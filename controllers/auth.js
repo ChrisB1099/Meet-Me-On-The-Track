@@ -53,7 +53,7 @@ exports.logout = (req, res) => {
     if (err)
       console.log("Error: Failed to destroy the session during logout.", err);
     req.user = null;
-    res.redirect("/");
+    res.redirect("/homepage");
   });
 };
 
